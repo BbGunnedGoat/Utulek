@@ -1,0 +1,74 @@
+﻿@page
+@model Utulek.Pages.Psi.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Vytváření</h1>
+
+<h4>Pes</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Pes.Jmeno" class="control-label"></label>
+                <input asp-for="Pes.Jmeno" class="form-control" />
+                <span asp-validation-for="Pes.Jmeno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pes.Pohlavi" class="control-label"></label>
+                <select asp-for="Pes.Pohlavi" class="form-control">
+                    @foreach(Pohlavi item in Enum.GetValues(typeof(Pohlavi)))
+                    {
+                        <option>@item</option>
+                    }
+                </select>
+                <span asp-validation-for="Pes.Pohlavi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pes.Plemeno" class="control-label"></label>
+                <input asp-for="Pes.Plemeno" class="form-control" formnovalidate/>
+                <span asp-validation-for="Pes.Plemeno" class="text-danger" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pes.Vek" class="control-label"></label>
+                <input asp-for="Pes.Vek" class="form-control" />
+                <span asp-validation-for="Pes.Vek" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pes.Hmotnost" class="control-label"></label>
+                <input asp-for="Pes.Hmotnost" class="form-control"/>
+                <span asp-validation-for="Pes.Hmotnost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pes.MestoNalezu" class="control-label"></label>
+                <input asp-for="Pes.MestoNalezu" class="form-control" />
+                <span asp-validation-for="Pes.MestoNalezu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pes.Foto" class="control-label"></label>
+                <input asp-for="Pes.Foto" class="form-control" />
+                <span asp-validation-for="Pes.Foto" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Pes.Volny" /> @Html.DisplayNameFor(model => model.Pes.Volny)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Vytvořit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Zpátky na seznam</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

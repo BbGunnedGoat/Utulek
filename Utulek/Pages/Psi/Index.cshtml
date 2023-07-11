@@ -1,0 +1,80 @@
+﻿@page
+@model Utulek.Pages.Psi.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Přehled psů</h1>
+
+<div class="d-flex justify-content-between mb-3">
+    <a class="btn btn-outline-primary" asp-page="Create">Nový záznam</a>
+    <form>
+        <div class="d-flex gap-3">
+            <input type="text" asp-for="SearchString" class="form-control" placeholder="Jméno psa" />
+            <input type="submit" value="Filtruj" class="btn btn-outline-secondary" />
+        </div>
+    </form>
+</div>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th style="width:1%;">
+                @Html.DisplayNameFor(model => model.Pes[0].Jmeno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pes[0].Pohlavi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pes[0].Plemeno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pes[0].Vek)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pes[0].Hmotnost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pes[0].MestoNalezu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pes[0].Volny)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Pes)
+        {
+            <tr>
+                <td class="d-flex flex-column col-auto">
+                    <img src="@item.Foto" style="width:100px;border-radius:50px;" class="mx-auto" />
+                    <div class="fw-bold text-center">@Html.DisplayFor(modelItem => item.Jmeno)</div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pohlavi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Plemeno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vek)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hmotnost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MestoNalezu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Volny)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Upravit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Detaily</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Odstranit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

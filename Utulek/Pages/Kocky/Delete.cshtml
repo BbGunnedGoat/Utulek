@@ -1,0 +1,70 @@
+﻿@page
+@model Utulek.Pages.Kocky.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Odstranění</h1>
+
+<h3>Jste si jisti, že chcete odstranit záznam kočky?</h3>
+<div>
+    <h4>Kocka</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kocka.Jmeno)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kocka.Jmeno)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kocka.Pohlavi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kocka.Pohlavi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kocka.Plemeno)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kocka.Plemeno)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kocka.Vek)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kocka.Vek)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kocka.Hmotnost)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kocka.Hmotnost)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kocka.MestoNalezu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kocka.MestoNalezu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kocka.Foto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kocka.Foto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kocka.Volny)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kocka.Volny)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Kocka.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Zpátky na seznam</a>
+    </form>
+</div>

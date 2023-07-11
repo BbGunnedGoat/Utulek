@@ -1,0 +1,70 @@
+﻿@page
+@model Utulek.Pages.Psi.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Odstranění</h1>
+
+<h3>Jste si jisti, že chcete odstranit záznam psa?</h3>
+<div>
+    <h4>Pes</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pes.Jmeno)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pes.Jmeno)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pes.Pohlavi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pes.Pohlavi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pes.Plemeno)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pes.Plemeno)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pes.Vek)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pes.Vek)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pes.Hmotnost)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pes.Hmotnost)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pes.MestoNalezu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pes.MestoNalezu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pes.Foto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pes.Foto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pes.Volny)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pes.Volny)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Pes.Id" />
+        <input type="submit" value="Odstranit" class="btn btn-danger" /> |
+        <a asp-page="./Index">Zpátky na seznam</a>
+    </form>
+</div>
